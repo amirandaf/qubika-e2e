@@ -20,7 +20,7 @@ Before running the tests, make sure you have the following tools installed:
 ## Installation
 
 1. **Clone the repository**:
-   git clone https://github.com/amiranda/qubika-e2e.git
+   git clone https://github.com/amirandaf/qubika-e2e.git
 
 2. Navigate into the project directory:
 cd qubika-e2e
