@@ -9,6 +9,7 @@ It automates key workflows such as user registration, login, and category creati
 - [Project Structure](#project-structure)
 - [Running Tests](#running-tests)
 - [Configuration](#configuration)
+- [Structure and Refactoring Decisions](#structure-and-refactoring-decisions)
 
 ## Prerequisites
 Before running the tests, make sure you have the following tools installed:  
@@ -89,3 +90,17 @@ Example configuration:
       use: { ...devices['Desktop Safari'] },
     },
  ...
+```
+
+### Structure and Refactoring Decisions
+
+1. **Code Modularization**:
+   - Functions like `registerUser`, `login`, `createCategory`, and `createSubCategory` have been separated into a utilities file (`helpers`) to keep the code clean and promote reusability. This ensures that each function has a single responsibility, following the *Single Responsibility Principle* (SRP).
+
+4. **Automated Tests with UI Validations**:
+   - UI validations were added before and after login to ensure that key UI elements are visible and functional. These validations guarantee that the application correctly loads UI components at different stages of the user flow.
+   - The login and category/subcategory creation flows through the UI validate the integration with the API, ensuring that users created via the API can be utilized in the UI.
+
+5. **Naming Conventions**:
+   - To avoid data conflicts between tests, unique emails and category names are generated using random names. This ensures that tests are consistent and that the created data is easy to identify in logs or databases when reviewing the results.
+
