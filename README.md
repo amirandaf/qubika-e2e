@@ -34,9 +34,9 @@ npx playwright install
 ## Project Structure
 Here is an overview of the folder structure in the project:
 
-qubika-e2e/
-│
-├── .github/                # GitHub CI/CD configurations (optional)
+qubika-e2e/  
+│  
+├── .github/                # GitHub CI/CD configurations (optional)  
 ├── node_modules/           # Project dependencies (auto-generated)
 ├── playwright-report/      # Playwright test reports
 ├── test-results/           # Results and logs of the test runs
