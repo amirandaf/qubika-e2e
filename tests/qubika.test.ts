@@ -1,5 +1,5 @@
 import { test, request, chromium , expect} from '@playwright/test';
-import { registerUser, login, createCategory, validateCreation } from './utils/helpers'; 
+import { registerUser, login, createCategory, createSubCategory, validateCategoryCreation } from './utils/helpers'; 
 
 test('register a new user via API and log in via UI with visible browser', async () => {
   const apiContext = await request.newContext();
@@ -39,13 +39,13 @@ test('register a new user via API and log in via UI with visible browser', async
   // 4. Create and validate a category
   const randomCategoryName = `Category_${Math.random().toString(36).substring(2, 8)}`;
   await createCategory(page, randomCategoryName);
-  await validateCreation(page, randomCategoryName);
+  await validateCategoryCreation(page, randomCategoryName);
 
   // 5. Create and validate a subcategory
   const randomSubCategoryName = `SubCategory_${Math.random().toString(36).substring(2, 8)}`;
-  await createCategory(page, randomSubCategoryName); 
-  await validateCreation(page, randomSubCategoryName);
-
+  await createSubCategory(page, randomSubCategoryName, randomCategoryName); 
+  await validateCategoryCreation(page, randomSubCategoryName);
+  
   // Close the browser after finishing
   await browser.close();
 });
