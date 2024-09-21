@@ -30,8 +30,21 @@ export async function registerUser(apiContext, email, password, roles) {
     await page.click('button[type="submit"].btn.btn-primary');
     await expect(page.locator('div[role="alertdialog"]')).toBeVisible();
   }
+
+  export async function createSubCategory(page, subCategoryName, categoryName) {
+    await page.click('a.nav-link[href="#/category-type"]');
+    await page.waitForURL('https://club-administration.qa.qubika.com/#/category-type');
+    await page.click('button.btn.btn-primary');
+    await page.fill('input[formcontrolname="name"]', subCategoryName);
+    await page.click('#mat-dialog-1 > app-tables > form > div:nth-child(2) > div > div:nth-child(2) > div > div > label');
+    await page.click('ng-select[formcontrolname="categoryId"]');
+    await page.waitForSelector('.ng-dropdown-panel');
+    await page.click(`div.ng-option span:has-text("${categoryName}")`);
+    await page.click('button[type="submit"].btn.btn-primary');
+    await expect(page.locator('div[role="alertdialog"]')).toBeVisible();
+  }
   
-  export async function validateCreation(page, itemName) {
+  export async function validateCategoryCreation(page, itemName) {
     await page.waitForSelector('ul.pagination.justify-content-end.mb-0');
     const paginationList = await page.locator('ul.pagination.justify-content-end.mb-0');
     const penultimateChild = paginationList.locator('li').nth(-2);
