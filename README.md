@@ -41,24 +41,22 @@ qubika-e2e/
 ├── playwright-report/      # Playwright test reports  
 ├── test-results/           # Results and logs of the test runs  
 ├── tests/  
-│   ├── utils/  
-│        ├── helpers.ts     # Helper functions and utilities          
-│   ├── qubika.test.ts      # Main test file for E2E testing  
-│   └── test-results/       # Additional test result files (optional)  
+│      ├── utils/  
+│           ├── helpers.ts     # Helper functions and utilities          
+│      ├── qubika.test.ts      # Main test file for E2E testing  
+│      └── test-results/       # Additional test result files (optional)  
 ├── .gitignore              # Files and folders to be ignored by Git  
 ├── package.json            # Project dependencies and scripts  
 ├── package-lock.json       # Dependency tree (auto-generated)  
 └── playwright.config.ts    # Playwright configuration file  
 
 ## Running Tests
-To run the tests in headless mode (no browser UI):  
-npx playwright test  
-
 To run the tests with the browser visible:  
-npx playwright test --headed  
+npx playwright test 
 
-To run a specific test (e.g., Qubika.test.ts):  
-npx playwright test tests/Qubika.test.ts  
+To run the tests in headless mode (no browser UI):  
+in the qubika.test.ts file on line 17: change the “headless” parameter to true.  
+npx playwright test  
 
 To view test reports after running the tests:  
 npx playwright show-report  
