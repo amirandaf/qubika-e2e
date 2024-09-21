@@ -42,7 +42,7 @@ qubika-e2e/
 ├── test-results/           # Results and logs of the test runs  
 ├── tests/  
 │      ├── utils/  
-│           ├── helpers.ts     # Helper functions and utilities          
+│             ├── helpers.ts     # Helper functions and utilities          
 │      ├── qubika.test.ts      # Main test file for E2E testing  
 │      └── test-results/       # Additional test result files (optional)  
 ├── .gitignore              # Files and folders to be ignored by Git  
