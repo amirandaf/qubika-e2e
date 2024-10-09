@@ -1,4 +1,4 @@
-# Qubika E2E Testing with Playwright
+# Practising E2E Testing with Playwright
 
 This project contains end-to-end (E2E) tests for the Qubika Club Management System using [Playwright](https://playwright.dev/).  
 It automates key workflows such as user registration, login, and category creation via both UI and API interactions.
